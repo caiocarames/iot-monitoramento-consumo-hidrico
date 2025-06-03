@@ -41,5 +41,98 @@
     "compatmode": false,
     "keepalive": "60",
     "cleansession": true
+  },
+  {
+    "id": "inject1",
+    "type": "inject",
+    "z": "flow1",
+    "name": "Disparar a cada 10min",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "600",
+    "crontab": "",
+    "once": true,
+    "onceDelay": "2",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 120,
+    "y": 200,
+    "wires": [
+      [
+        "http-api"
+      ]
+    ]
+  },
+  {
+    "id": "http-api",
+    "type": "http request",
+    "z": "flow1",
+    "name": "API Clima (OpenWeather)",
+    "method": "GET",
+    "ret": "txt",
+    "paytoqs": false,
+    "url": "https://api.openweathermap.org/data/2.5/weather?q=Sao Paulo,BR&appid=SUA_API_KEY&units=metric&lang=pt_br",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "",
+    "x": 340,
+    "y": 200,
+    "wires": [
+      [
+        "to-json"
+      ]
+    ]
+  },
+  {
+    "id": "to-json",
+    "type": "json",
+    "z": "flow1",
+    "name": "Converter JSON",
+    "property": "payload",
+    "action": "",
+    "pretty": false,
+    "x": 560,
+    "y": 200,
+    "wires": [
+      [
+        "extrair-temp"
+      ]
+    ]
+  },
+  {
+    "id": "extrair-temp",
+    "type": "function",
+    "z": "flow1",
+    "name": "Extrair Temperatura",
+    "func": "msg.payload = {\n    temperatura: msg.payload.main.temp,\n    umidade: msg.payload.main.humidity,\n    clima: msg.payload.weather[0].description\n};\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 780,
+    "y": 200,
+    "wires": [
+      [
+        "debug1"
+      ]
+    ]
+  },
+  {
+    "id": "debug1",
+    "type": "debug",
+    "z": "flow1",
+    "name": "Mostrar dados clim\u00e1ticos",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "x": 1010,
+    "y": 200,
+    "wires": []
   }
 ]
