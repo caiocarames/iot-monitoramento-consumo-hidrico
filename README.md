@@ -2,7 +2,7 @@
 
 Projeto acadêmico desenvolvido na Universidade Presbiteriana Mackenzie com foco em sustentabilidade e IoT. Utiliza ESP32, sensor de fluxo de água, protocolo MQTT, Node-RED e dashboards no Grafana.
 
-## 💡 Descrição
+## Descrição
 
 O sistema monitora o consumo de água em tempo real, integrando sensores com um ambiente de programação visual (Node-RED), banco de dados (InfluxDB ou CSV) e visualizações em dashboards interativos.
 
