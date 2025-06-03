@@ -1,0 +1,167 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": null,
+    "title": "Monitoramento H\u00eddrico - Simula\u00e7\u00e3o",
+    "timezone": "browser",
+    "schemaVersion": 36,
+    "version": 1,
+    "refresh": "5s",
+    "panels": [
+      {
+        "type": "gauge",
+        "title": "Vaz\u00e3o Atual (L/min)",
+        "gridPos": {
+          "x": 0,
+          "y": 0,
+          "w": 6,
+          "h": 5
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "liters",
+            "decimals": 2
+          },
+          "overrides": []
+        },
+        "targets": [
+          {
+            "refId": "A"
+          }
+        ]
+      },
+      {
+        "type": "stat",
+        "title": "Volume Total Acumulado (L)",
+        "gridPos": {
+          "x": 6,
+          "y": 0,
+          "w": 6,
+          "h": 5
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "liters",
+            "decimals": 0
+          },
+          "overrides": []
+        },
+        "targets": [
+          {
+            "refId": "B"
+          }
+        ]
+      },
+      {
+        "type": "stat",
+        "title": "Temperatura Atual (\u00b0C)",
+        "gridPos": {
+          "x": 0,
+          "y": 5,
+          "w": 4,
+          "h": 4
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "celsius",
+            "decimals": 1
+          },
+          "overrides": []
+        },
+        "targets": [
+          {
+            "refId": "C"
+          }
+        ]
+      },
+      {
+        "type": "gauge",
+        "title": "Umidade Atual (%)",
+        "gridPos": {
+          "x": 4,
+          "y": 5,
+          "w": 4,
+          "h": 4
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "decimals": 0
+          },
+          "overrides": []
+        },
+        "targets": [
+          {
+            "refId": "D"
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "Temperatura e Vaz\u00e3o por Hora",
+        "gridPos": {
+          "x": 8,
+          "y": 5,
+          "w": 8,
+          "h": 9
+        },
+        "fieldConfig": {
+          "defaults": {},
+          "overrides": []
+        },
+        "targets": [
+          {
+            "refId": "E"
+          },
+          {
+            "refId": "F"
+          }
+        ]
+      },
+      {
+        "type": "barchart",
+        "title": "Consumo por Dia (L)",
+        "gridPos": {
+          "x": 0,
+          "y": 10,
+          "w": 8,
+          "h": 9
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "liters"
+          },
+          "overrides": []
+        },
+        "targets": [
+          {
+            "refId": "G"
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "Chuva vs Consumo",
+        "gridPos": {
+          "x": 8,
+          "y": 14,
+          "w": 8,
+          "h": 9
+        },
+        "fieldConfig": {
+          "defaults": {},
+          "overrides": []
+        },
+        "targets": [
+          {
+            "refId": "H"
+          },
+          {
+            "refId": "I"
+          }
+        ]
+      }
+    ]
+  },
+  "overwrite": true
+}
