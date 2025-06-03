@@ -1,0 +1,45 @@
+[
+  {
+    "id": "1",
+    "type": "mqtt in",
+    "z": "flow1",
+    "name": "Leitura MQTT",
+    "topic": "agua/monitoramento/fluxo",
+    "qos": "0",
+    "datatype": "auto",
+    "broker": "mqtt-broker",
+    "x": 120,
+    "y": 100,
+    "wires": [
+      [
+        "2"
+      ]
+    ]
+  },
+  {
+    "id": "2",
+    "type": "debug",
+    "z": "flow1",
+    "name": "Exibir valor",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "x": 320,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "mqtt-broker",
+    "type": "mqtt-broker",
+    "name": "Broker P\u00fablico",
+    "broker": "broker.hivemq.com",
+    "port": "1883",
+    "clientid": "node-red-client",
+    "usetls": false,
+    "compatmode": false,
+    "keepalive": "60",
+    "cleansession": true
+  }
+]
